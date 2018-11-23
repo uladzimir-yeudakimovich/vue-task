@@ -12,19 +12,19 @@
         </article>
         <carousel class="main__container" :per-page="1">
           <slide>
-            <img :src="slide.images[0]" alt="Random first slide">
+            <img class="main__my-work_img" :src="slide.images[0]" alt="Random first slide">
           </slide>
           <slide>
-            <img :src="slide.images[1]" alt="Random second slide">
+            <img class="main__my-work_img" :src="slide.images[1]" alt="Random second slide">
           </slide>
           <slide>
-            <img :src="slide.images[2]" alt="Random third slide">
+            <img class="main__my-work_img" :src="slide.images[2]" alt="Random third slide">
           </slide>
           <slide>
-            <img :src="slide.images[3]" alt="Random fourth slide">
+            <img class="main__my-work_img" :src="slide.images[3]" alt="Random fourth slide">
           </slide>
           <slide>
-            <img :src="slide.images[4]" alt="Random fifth slide">
+            <img class="main__my-work_img" :src="slide.images[4]" alt="Random fifth slide">
           </slide>
         </carousel>
       </div>
@@ -134,7 +134,8 @@ export default {
 }
 
 .main__container {
-  width: 50%;
+  width: 48%;
+  margin: 8px 1%;
   display: inline-block;
 }
 
@@ -157,9 +158,10 @@ export default {
   opacity: 0.8;
 }
 
-img {
-    width: 100%;
-  }
+.main__my-work_img {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .main__my-works {
     display: block;
@@ -175,6 +177,7 @@ img {
 
   .main__container {
     width: 100%;
+    margin: 0;
     display: block;
   }
 }
