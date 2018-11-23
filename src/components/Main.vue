@@ -2,30 +2,32 @@
   <div>
     <h1 class="main__title">{{ title }}</h1>
     <div v-for="slide in slides">
-      <article>
-        <div>
-          <h3>{{ slide.name }}</h3>
-          <a :href="slide.link" target="_blank" rel="noopener">{{ slide.click }}</a>
-        </div>
-        <p>&nbsp;{{ slide.description }}</p>
-      </article>
-      <carousel :per-page="1">
-        <slide>
-          <img :src="slide.images[0]" alt="Random first slide">
-        </slide>
-        <slide>
-          <img :src="slide.images[1]" alt="Random second slide">
-        </slide>
-        <slide>
-          <img :src="slide.images[2]" alt="Random third slide">
-        </slide>
-        <slide>
-          <img :src="slide.images[3]" alt="Random fourth slide">
-        </slide>
-        <slide>
-          <img :src="slide.images[4]" alt="Random fifth slide">
-        </slide>
-      </carousel>
+      <div :class="slides.indexOf(slide)%2 === 0 ? 'main__my-works-right' : 'main__my-works'">
+        <article class="main__container">
+          <div>
+            <h3 class="main__my-work_slide-name">{{ slide.name }}</h3>
+            <a class="main__my-work_slide-link" :href="slide.link" target="_blank" rel="noopener">{{ slide.click }}</a>
+          </div>
+          <p class="main__my-work_description">&nbsp;{{ slide.description }}</p>
+        </article>
+        <carousel class="main__container" :per-page="1">
+          <slide>
+            <img :src="slide.images[0]" alt="Random first slide">
+          </slide>
+          <slide>
+            <img :src="slide.images[1]" alt="Random second slide">
+          </slide>
+          <slide>
+            <img :src="slide.images[2]" alt="Random third slide">
+          </slide>
+          <slide>
+            <img :src="slide.images[3]" alt="Random fourth slide">
+          </slide>
+          <slide>
+            <img :src="slide.images[4]" alt="Random fifth slide">
+          </slide>
+        </carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -114,5 +116,66 @@ export default {
 </script>
 
 <style scoped>
- 
+.main__title {
+  display: flex;
+  justify-content: center;
+}
+
+.main__my-works {
+  display: flex;
+  margin-top: 20px;
+}
+
+.main__my-works-right {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.main__container {
+  width: 50%;
+  display: inline-block;
+}
+
+.main__my-work_slide-name {
+  display: flex;
+  justify-content: center;
+}
+
+.main__my-work_slide-link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #0000FF;
+}
+.main__my-work_slide-link:hover {
+  color: rgb(64, 64, 221)
+}
+
+.main__my-work_description {
+  opacity: 0.8;
+}
+
+img {
+    width: 100%;
+  }
+@media (max-width: 768px) {
+  .main__my-works {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .main__my-works-right {
+    display: block;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .main__container {
+    width: 100%;
+    display: block;
+  }
+}
 </style>
