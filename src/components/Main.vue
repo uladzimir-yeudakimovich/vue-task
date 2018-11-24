@@ -35,35 +35,35 @@
 <script>
 import { Carousel, Slide } from "vue-carousel";
 
-import angular_task1 from "../assets/images/angular_task/angular_task1.jpg";
-import angular_task2 from "../assets/images/angular_task/angular_task2.jpg";
-import angular_task3 from "../assets/images/angular_task/angular_task3.jpg";
-import angular_task4 from "../assets/images/angular_task/angular_task4.jpg";
-import angular_task5 from "../assets/images/angular_task/angular_task5.jpg";
+import angular_task1 from "@/assets/images/angular_task/angular_task1.jpg";
+import angular_task2 from "@/assets/images/angular_task/angular_task2.jpg";
+import angular_task3 from "@/assets/images/angular_task/angular_task3.jpg";
+import angular_task4 from "@/assets/images/angular_task/angular_task4.jpg";
+import angular_task5 from "@/assets/images/angular_task/angular_task5.jpg";
 
-import portfolio1 from "../assets/images/portfolio/portfolio1.jpg";
-import portfolio2 from "../assets/images/portfolio/portfolio2.jpg";
-import portfolio3 from "../assets/images/portfolio/portfolio3.jpg";
-import portfolio4 from "../assets/images/portfolio/portfolio4.jpg";
-import portfolio5 from "../assets/images/portfolio/portfolio5.jpg";
+import portfolio1 from "@/assets/images/portfolio/portfolio1.jpg";
+import portfolio2 from "@/assets/images/portfolio/portfolio2.jpg";
+import portfolio3 from "@/assets/images/portfolio/portfolio3.jpg";
+import portfolio4 from "@/assets/images/portfolio/portfolio4.jpg";
+import portfolio5 from "@/assets/images/portfolio/portfolio5.jpg";
 
-import react1 from "../assets/images/react/react1.jpg";
-import react2 from "../assets/images/react/react2.jpg";
-import react3 from "../assets/images/react/react3.jpg";
-import react4 from "../assets/images/react/react4.jpg";
-import react5 from "../assets/images/react/react5.jpg";
+import react1 from "@/assets/images/react/react1.jpg";
+import react2 from "@/assets/images/react/react2.jpg";
+import react3 from "@/assets/images/react/react3.jpg";
+import react4 from "@/assets/images/react/react4.jpg";
+import react5 from "@/assets/images/react/react5.jpg";
 
-import match1 from "../assets/images/match/match1.jpg";
-import match2 from "../assets/images/match/match2.jpg";
-import match3 from "../assets/images/match/match3.jpg";
-import match4 from "../assets/images/match/match4.jpg";
-import match5 from "../assets/images/match/match5.jpg";
+import match1 from "@/assets/images/match/match1.jpg";
+import match2 from "@/assets/images/match/match2.jpg";
+import match3 from "@/assets/images/match/match3.jpg";
+import match4 from "@/assets/images/match/match4.jpg";
+import match5 from "@/assets/images/match/match5.jpg";
 
-import restaurant1 from '../assets/images/restaurant/restaurant1.jpg';
-import restaurant2 from '../assets/images/restaurant/restaurant2.jpg';
-import restaurant3 from '../assets/images/restaurant/restaurant3.jpg';
-import restaurant4 from '../assets/images/restaurant/restaurant4.jpg';
-import restaurant5 from '../assets/images/restaurant/restaurant5.jpg';
+import restaurant1 from '@/assets/images/restaurant/restaurant1.jpg';
+import restaurant2 from '@/assets/images/restaurant/restaurant2.jpg';
+import restaurant3 from '@/assets/images/restaurant/restaurant3.jpg';
+import restaurant4 from '@/assets/images/restaurant/restaurant4.jpg';
+import restaurant5 from '@/assets/images/restaurant/restaurant5.jpg';
 
 export default {
   components: {

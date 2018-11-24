@@ -1,16 +1,16 @@
 <template>
   <div class="header">
     <figure class="container header__laptop">
-      <img class="rectangle" src="../assets/images/logo_laptop.jpg" alt="logo_laptop">
+      <img class="rectangle" src="@/assets/images/logo_laptop.jpg" alt="logo_laptop">
     </figure>
     <article class="container">
       <h3 class="header__subname">{{ position }}</h3>
       <h1 class="header__name">{{ name }}</h1>
       <figure class="header__phone">
-        <img class="circle" src="../assets/images/logo_phone.jpg" alt="logo_phone">
+        <img class="circle" src="@/assets/images/logo_phone.jpg" alt="logo_phone">
       </figure>
       <figure class="header__tablet">
-        <img class="circle" src="../assets/images/logo_tablet.jpg" alt="logo_tablet">
+        <img class="circle" src="@/assets/images/logo_tablet.jpg" alt="logo_tablet">
       </figure>
       <p class="header__descriptin">&nbsp;{{ description }}</p>
     </article>
