@@ -32,7 +32,6 @@ export default {
 <style scoped>
 .header {
   display: flex;
-  margin: 0 -8px;
   background-color: #3a3842;
   color: white;
 }

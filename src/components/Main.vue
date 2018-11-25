@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <h1 class="main__title">{{ title }}</h1>
     <div v-for="slide in slides">
       <div :class="slides.indexOf(slide)%2 === 0 ? 'main__my-works-right' : 'main__my-works'">
@@ -116,6 +116,10 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  padding: 0 15px;
+}
+
 .main__title {
   display: flex;
   justify-content: center;
