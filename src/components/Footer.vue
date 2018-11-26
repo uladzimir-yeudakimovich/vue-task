@@ -5,44 +5,44 @@
       <p class="contacts_description">&nbsp;{{ description }}</p>
       <ul class="contacts_items">
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/phone.svg"></mat-icon> -->
-          <a class="contact-link" href="tel:footer.phone">{{ phone }}</a>
+          <img src="../assets/images/social_icons/phone.svg" alt="phone">
+          <a class="contact-link" href="tel:phone">{{ phone }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/envelope.svg"></mat-icon> -->
-          <a class="contact-link" href="mailto:footer.email">{{ email }}</a>
+          <img src="../assets/images/social_icons/envelope.svg" alt="email">
+          <a class="contact-link" href="mailto:email">{{ email }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/cloud.svg"></mat-icon> -->
-          <a class="contact-link" href="assets/CV_Евдокимович Владимир.docx" download>{{ cvRussian }}</a>
+          <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
+          <a class="contact-link" href="../assets/CV_Евдокимович Владимир.docx" download>{{ cvRussian }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/cloud.svg"></mat-icon> -->
-          <a class="contact-link" href="assets/CV_Uladzimir Yeudakimovich.docx" download>{{ cvEnglish }}</a>
+          <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
+          <a class="contact-link" href="../assets/CV_Uladzimir Yeudakimovich.docx" download>{{ cvEnglish }}</a>
         </li>
       </ul>
       <h4 class="contacts_title">{{ subname }}</h4>
       <ul class="contacts_items">
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/linkedin.svg"></mat-icon> -->
+          <img src="../assets/images/social_icons/linkedin.svg" alt="linkedin">
           <a class="contact-link" href="https://www.linkedin.com/in/uladzimir-yeudakimovich" target="_blank" rel="noopener">{{ linkedin }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/github.svg"></mat-icon> -->
+          <img src="../assets/images/social_icons/github.svg" alt="github">
           <a class="contact-link" href="https://github.com/uladzimir-yeudakimovich" target="_blank" rel="noopener">{{ github }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/codewars.svg"></mat-icon> -->
+          <img src="../assets/images/social_icons/codewars.svg" alt="codewars">
           <a class="contact-link" href="https://www.codewars.com/users/uladzimir.yeudakimovich" target="_blank" rel="noopener">{{ codewars }}</a>
         </li>
         <li class="contact-item">
-          <!-- <mat-icon inlineSVG="assets/images/social_icons/students-cap.svg"></mat-icon> -->
+          <img src="../assets/images/social_icons/students-cap.svg" alt="cap">
           <a class="contact-link" href="https://www.duolingo.com/91YN1" target="_blank" rel="noopener">{{ duolingo }}</a>
         </li>
       </ul>
     </section>
 
-    <form class="container">
+    <form class="container footer__register-form">
       <div class="form-group">
         <input class="form-control"
               type="text"
@@ -147,18 +147,22 @@ export default {
 }
 
 .contact-item {
-  margin-top: 10px;
+  display: flex;
   list-style-type: none;
 }
 
 .contact-link {
   text-decoration: none;
   color: #0000FF;
-  padding: 10px 0 10px 12px;
+  padding: 5px 0 5px 12px;
 }
 
 .contact-link:hover {
   color: rgb(64, 64, 221)
+}
+
+.footer__register-form {
+  margin-top: 38px;
 }
 
 .form-control {
