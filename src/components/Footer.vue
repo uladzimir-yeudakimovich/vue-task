@@ -6,19 +6,19 @@
       <ul class="contacts_items">
         <li class="contact-item">
           <img src="../assets/images/social_icons/phone.svg" alt="phone">
-          <a class="contact-link" href="tel:phone">{{ phone }}</a>
+          <a class="contact-link" href="tel:+375333344201">{{ phone }}</a>
         </li>
         <li class="contact-item">
           <img src="../assets/images/social_icons/envelope.svg" alt="email">
-          <a class="contact-link" href="mailto:myEmail">{{ myEmail }}</a>
+          <a class="contact-link" href="mailto:uladzimir.yeudakimovich@gmail.com">{{ myEmail }}</a>
         </li>
         <li class="contact-item">
           <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-          <a class="contact-link" href="../assets/CV_Евдокимович Владимир.docx" download>{{ cvRussian }}</a>
+          <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Евдокимович Владимир.docx" download>{{ cvRussian }}</a>
         </li>
         <li class="contact-item">
           <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-          <a class="contact-link" href="../assets/CV_Uladzimir Yeudakimovich.docx" download>{{ cvEnglish }}</a>
+          <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Uladzimir Yeudakimovich.docx" download>{{ cvEnglish }}</a>
         </li>
       </ul>
       <h4 class="contacts_title">{{ subname }}</h4>
