@@ -44,21 +44,21 @@
 
     <form class="container footer__register-form" @submit.prevent="submit">
       <div>
-        <input class="form__input" :placeholder="form.name" v-model.trim="$v.name.$model"/>
+        <input class="form__input" :class="{ 'form__input_error': $v.name.$error }" :placeholder="form.name" v-model.trim="$v.name.$model"/>
         <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ required.name }}</div>
         <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ required.validName }}</div>
       </div>
       <div>
-        <input class="form__input" :placeholder="form.email" v-model.trim="$v.email.$model"/>
+        <input class="form__input" :class="{ 'form__input_error': $v.email.$error }" :placeholder="form.email" v-model.trim="$v.email.$model"/>
         <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ required.email }}</div>
         <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ required.validEmail }}</div>
       </div>
       <div>
-        <textarea class="form__input form__input_message" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
+        <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error }" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
         <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ required.message }}</div>
         <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ required.validMessage }}</div>
       </div>
-      <div class="form-group">
+      <div>
         <button class="btn-primary" type="submit" :disabled="submitStatus === 'OK'">{{ buttons.submit }}</button>
       </div>
     </form>
@@ -143,7 +143,7 @@ export default {
 <style scoped>
 .footer {
   display: flex;
-  padding: 15px;
+  padding: 30px;
   background-image: linear-gradient(-180deg, #E6F0F0 0%, #E9F0E6 100%);
 }
 
@@ -194,6 +194,10 @@ export default {
   border: 2px solid grey;
 }
 
+.form__input_error {
+  border: 2px solid red;
+}
+
 .form__input_message {
   height: 135px;
   padding-top: 10px;
@@ -213,7 +217,7 @@ export default {
 }
 
 .btn-primary {
-  width: 100%;
+  width: calc(100% + 4px);
   height: 49px;
   margin-top: 10px;
   background-color: #0000FF;
