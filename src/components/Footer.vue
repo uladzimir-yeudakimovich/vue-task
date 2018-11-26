@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <section class="container">
-      <h3 class="contacts_title">{{ name }}</h3>
+      <h3 class="contacts_title">{{ information }}</h3>
       <p class="contacts_description">&nbsp;{{ description }}</p>
       <ul class="contacts_items">
         <li class="contact-item">
@@ -10,7 +10,7 @@
         </li>
         <li class="contact-item">
           <img src="../assets/images/social_icons/envelope.svg" alt="email">
-          <a class="contact-link" href="mailto:email">{{ email }}</a>
+          <a class="contact-link" href="mailto:myEmail">{{ myEmail }}</a>
         </li>
         <li class="contact-item">
           <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
@@ -42,49 +42,39 @@
       </ul>
     </section>
 
-    <form class="container footer__register-form">
-      <div class="form-group">
-        <input class="form-control"
-              type="text"
-              aria-label="name"/>
-        <!-- <div class="invalid-feedback" v-if="submitted && f.name.errors">
-          <div v-if="f.name.errors.required">{{ footer.required.name }}</div>
-        </div> -->
+    <form class="container footer__register-form" @submit.prevent="submit">
+      <div>
+        <input class="form__input" :placeholder="form.name" v-model.trim="$v.name.$model"/>
+        <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ required.name }}</div>
+        <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ required.validName }}</div>
+      </div>
+      <div>
+        <input class="form__input" :placeholder="form.email" v-model.trim="$v.email.$model"/>
+        <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ required.email }}</div>
+        <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ required.validEmail }}</div>
+      </div>
+      <div>
+        <textarea class="form__input form__input_message" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
+        <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ required.message }}</div>
+        <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ required.validMessage }}</div>
       </div>
       <div class="form-group">
-        <input class="form-control"
-              type="text"
-              aria-label="email"/>
-        <!-- <div class="invalid-feedback" v-if="submitted && f.email.errors">
-          <div v-if="f.email.errors.required">{{ footer.required.email }}</div>
-          <div v-if="f.email.errors.email">{{ footer.required.validEmail }}</div>
-        </div> -->
-      </div>
-      <div class="form-group">
-        <textarea class="form-control form-control_message"
-              type="text"
-              aria-label="message">
-        </textarea>
-        <!-- <div class="invalid-feedback" v-if="submitted && f.message.errors">
-          <div v-if="f.message.errors.required">{{ footer.required.message }}</div>
-          <div v-if="f.message.errors.minlength">{{ footer.required.validMessage }}</div>
-        </div> -->
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary">{{ buttons.submit }}</button>
+        <button class="btn-primary" type="submit" :disabled="submitStatus === 'OK'">{{ buttons.submit }}</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import { required, minLength, email } from 'vuelidate/lib/validators';
+
 export default {
   data () {
     return {
-      name: "Contact Information",
+      information: "Contact Information",
       description: "I'm open to new projects. You can send me for evaluation an approximate technical assignment or simply a description of the project in your own words.",
       phone: "+375 33 3344201",
-      email: "uladzimir.yeudakimovich@gmail.com",
+      myEmail: "uladzimir.yeudakimovich@gmail.com",
       cvRussian: "CV in russian",
       cvEnglish: "CV in english",
       subname: "Links to my social networks:",
@@ -92,12 +82,10 @@ export default {
       github: "Github",
       codewars: "CodeWars",
       duolingo: "Duolingo",
-      message: {
-        comments: "Comments",
-        name: "Name",
-        email: "Email",
-        messages: "Messages"
-      },
+      name: '',
+      email: '',
+      message: '',
+      submitStatus: null,
       form: {
         name: "Enter name *",
         email: "Enter email *",
@@ -105,15 +93,47 @@ export default {
       },
       required: {
         name: "Name is required",
+        validName: "Name must be at least 4 characters",
         email: "Email is required",
         validEmail: "Email must be a valid email address",
         message: "Message is required",
         validMessage: "Message must be at least 2 characters"
       },
       buttons: {
-        update: "Update",
-        close: "Close",
         submit: "Submit"
+      }
+    }
+  },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(4)
+    },
+    email: {
+      required,
+      email
+    },
+    message: {
+      required,
+      minLength: minLength(2)
+    }
+  },
+  methods: {
+    submit() {
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+      } else {
+        this.submitStatus = 'OK'
+        const letter = {
+          name: this.$v.name.$model,
+          email: this.$v.email.$model,
+          message: this.$v.message.$model
+        }
+        console.log(letter);
+        this.$v.name.$model = '';
+        this.$v.email.$model = '';
+        this.$v.message.$model = '';
       }
     }
   }
@@ -162,32 +182,45 @@ export default {
 }
 
 .footer__register-form {
-  margin-top: 38px;
+  margin-top: 22px;
 }
 
-.form-control {
+.form__input {
   border-radius: 4px;
   width: 90%;
   height: 48px;
   padding: 0 5%;
-  margin-bottom: 15px;
+  margin-top: 15px;
   border: 2px solid grey;
 }
 
-.form-control_message {
+.form__input_message {
   height: 135px;
   padding-top: 10px;
+  font-size: 15px;
 }
 
-.form-control:hover {
+.form__input:hover {
   border: 2px solid #286090;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
 }
 
 .btn-primary {
   width: 100%;
   height: 49px;
-  margin-bottom: 15px;
+  margin-top: 10px;
   background-color: #0000FF;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-size: 20px;
 }
 
 .btn-primary:hover {background-color: rgb(64, 64, 221)}
