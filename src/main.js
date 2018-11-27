@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import App from './App';
 import Vuelidate from 'vuelidate';
-Vue.use(Vuelidate);
+import { i18n } from './plugins/i18n';
 
+Vue.use(Vuelidate);
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  //router,
+  i18n,
+  render: (h) => h(App)
 })

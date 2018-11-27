@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="main__title">{{ title }}</h1>
+    <h1 class="main__title">{{ $t('title') }}</h1>
     <div v-for="slide in slides" v-bind:key="slide.id">
       <div :class="slides.indexOf(slide)%2 === 0 ? 'main__my-works-right' : 'main__my-works'">
         <article class="main__container">
@@ -77,7 +77,6 @@ export default {
   },
   data () {
     return {
-      title: 'My works',
       slides: [
         {
           id: 1,

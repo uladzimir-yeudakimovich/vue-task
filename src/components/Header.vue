@@ -1,29 +1,33 @@
 <template>
   <div class="header">
+    <div class="languages">
+      <button class="change-language" v-for="lang in languages" v-bind:key="lang" @click="changeLanguage(lang)">
+        {{ lang }}
+      </button>
+    </div>
     <figure class="container header__laptop">
       <img class="rectangle" src="../assets/images/logo_laptop.jpg" alt="logo_laptop">
     </figure>
     <article class="container">
-      <h3 class="header__subname">{{ position }}</h3>
-      <h1 class="header__name">{{ name }}</h1>
+      <h3 class="header__subname">{{ $t('position') }}</h3>
+      <h1 class="header__name">{{ $t('name') }}</h1>
       <figure class="header__phone">
         <img class="circle" src="../assets/images/logo_phone.jpg" alt="logo_phone">
       </figure>
       <figure class="header__tablet">
         <img class="circle" src="../assets/images/logo_tablet.jpg" alt="logo_tablet">
       </figure>
-      <p class="header__descriptin">&nbsp;{{ description }}</p>
+      <p class="header__descriptin">&nbsp;{{ $t('description') }}</p>
     </article>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      position: "Software Engineer",
-      name: "Uladzimir Yeudakimovich",
-      description: "A few words about me. I graduated from Rolling Scopes School in EPAM Systems with a specialization in front-end development. I work as software engineer for OCS Innovation Company (OCSICO®). I use frameworks Angular, AngularJS, Angular Material and Bootstrap, Ajax technology, jQuery library, webpack collector, LESS and SASS preprocessors, Git version control system. I'm experienced in the React and Vue frameworks."
+  data: () => ({ languages: ['En', 'Ru'] }),
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.locale = lang;
     }
   }
 }
@@ -34,6 +38,21 @@ export default {
   display: flex;
   background-color: #3a3842;
   color: white;
+}
+
+.languages {
+  position: fixed;
+  top: 10px;
+  left: calc(50% - 100px);
+}
+
+.change-language {
+  width: 100px;
+  height: 40px;
+  background-color: #0000ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
 }
 
 .container {
