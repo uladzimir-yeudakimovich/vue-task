@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h1 class="main__title">{{ title }}</h1>
-    <div v-for="slide in slides">
+    <div v-for="slide in slides" v-bind:key="slide.id">
       <div :class="slides.indexOf(slide)%2 === 0 ? 'main__my-works-right' : 'main__my-works'">
         <article class="main__container">
           <div>
@@ -75,6 +75,7 @@ export default {
       title: 'My works',
       slides: [
         {
+          id: 1,
           name: "Application on angular.",
           link: "http://uladzimir-yeudakimovich.ml/angular-app/",
           click: "view application",
@@ -82,6 +83,7 @@ export default {
           images : [angular_task1, angular_task2, angular_task3, angular_task4, angular_task5]
         },
         {
+          id: 2,
           name: "Portfolio.",
           link: "http://uladzimir-yeudakimovich.ml/portfolio-js/",
           click: "view application",
@@ -89,6 +91,7 @@ export default {
           images : [portfolio1, portfolio2, portfolio3, portfolio4, portfolio5]
         },
         {
+          id: 3,
           name: "Application on react.",
           link: "http://uladzimir-yeudakimovich.ml/react-app/",
           click: "view application",
@@ -96,6 +99,7 @@ export default {
           images : [react1, react2, react3, react4, react5]
         },
         {
+          id: 4,
           name: "Math-match-game.",
           link: "http://uladzimir-yeudakimovich.ml/match-match-game/",
           click: "play",
@@ -103,6 +107,7 @@ export default {
           images : [match1, match2, match3, match4, match5]
         },
         {
+          id: 5,
           name: "The site of restaurant.",
           link: "http://uladzimir-yeudakimovich.ml/restaurant",
           click: "view site",

@@ -19,13 +19,13 @@
       <h5 class="container">{{ messages.messages }}</h5>
     </div>
 
-    <div class="footer__message_items" v-if="messagesFromServer" v-for="later of messagesFromServer">
+    <div class="footer__message_items" v-if="messagesFromServer" v-for="later of messagesFromServer" v-bind:key="later.email">
       <p class="container">{{ later.name }}</p>
       <p class="container">{{ later.email }}</p>
       <p class="container">&nbsp;{{ later.message }}</p>
     </div>
     
-    <div class="footer__message_items" v-if="messagesFromLocalStorage" v-for="later of messagesFromLocalStorage" v-on:click="showDetails(messagesFromLocalStorage.indexOf(later))">
+    <div class="footer__message_items" v-if="messagesFromLocalStorage" v-for="later of messagesFromLocalStorage" v-bind:key="later.email" v-on:click="showDetails(messagesFromLocalStorage.indexOf(later))">
       <p class="container">{{ later.name }}</p>
       <p class="container">{{ later.email }}</p>
       <p class="container">
