@@ -79,17 +79,17 @@
 
       <form class="container footer__register-form" @submit.prevent="submit">
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.name.$error }" :placeholder="form.name" v-model.trim="$v.name.$model"/>
+          <input class="form__input" :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }" :placeholder="form.name" v-model.trim="$v.name.$model"/>
           <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ required.name }}</div>
           <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ required.validName }}</div>
         </div>
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.email.$error }" :placeholder="form.email" v-model.trim="$v.email.$model"/>
+          <input class="form__input" :class="{ 'form__input_error': $v.email.$error && submitStatus === 'ERROR' }" :placeholder="form.email" v-model.trim="$v.email.$model"/>
           <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ required.email }}</div>
           <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ required.validEmail }}</div>
         </div>
         <div>
-          <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error }" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
+          <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error && submitStatus === 'ERROR' }" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
           <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ required.message }}</div>
           <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ required.validMessage }}</div>
         </div>
@@ -186,6 +186,7 @@ export default {
         this.$v.name.$model = '';
         this.$v.email.$model = '';
         this.$v.message.$model = '';
+        this.submitStatus = null;
       }
     },
     deleted(event) {

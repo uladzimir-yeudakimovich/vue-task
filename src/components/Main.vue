@@ -10,7 +10,12 @@
           </div>
           <p class="main__my-work_description">&nbsp;{{ slide.description }}</p>
         </article>
-        <carousel class="main__container" :per-page="1">
+        <carousel class="main__container"
+                  :per-page="1"
+                  :autoplay="true"
+                  :autoplayTimeout="3000"
+                  :loop="true"
+                  paginationActiveColor="#0000ff">
           <slide>
             <img class="main__my-work_img" :src="slide.images[0]" alt="Random first slide">
           </slide>
