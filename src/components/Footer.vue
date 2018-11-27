@@ -1,14 +1,14 @@
 <template>
   <div class="footer">
-    <div class="footer__show-modal" v-if="showMessageDetales">
+    <div class="footer__show-modal" v-if="showMessageDetales && showMessage[0]">
       <div class="footer__show-modal_items">
         <h5 class="container">{{ this.showMessage[0].name }}</h5>
         <h5 class="container">{{ this.showMessage[0].email }}</h5>
-        <textarea class="container form__input_message"></textarea>
+        <textarea class="container form__input_message form__input_message-modal" v-model.trim="showMessage[0].message"></textarea>
       </div>
       <div class="footer__show-modal_buttons">
-        <button class="btn-update" v-on:click="updateMessage">{{ buttons.update }}</button>
-        <button class="btn-close" v-on:click="closeMessage">{{ buttons.close }}</button>
+        <button class="btn btn-update" v-on:click="updateMessage">{{ buttons.update }}</button>
+        <button class="btn btn-close" v-on:click="closeMessage">{{ buttons.close }}</button>
       </div>
     </div>
 
@@ -18,22 +18,20 @@
       <h5 class="container">{{ messages.email }}</h5>
       <h5 class="container">{{ messages.messages }}</h5>
     </div>
-    <div v-if="messagesFromServer">
-      <div class="footer__message_items" v-for="later of messagesFromServer">
-        <p class="container">{{ later.name }}</p>
-        <p class="container">{{ later.email }}</p>
-        <p class="container">&nbsp;{{ later.message }}</p>
-      </div>
+
+    <div class="footer__message_items" v-if="messagesFromServer" v-for="later of messagesFromServer">
+      <p class="container">{{ later.name }}</p>
+      <p class="container">{{ later.email }}</p>
+      <p class="container">&nbsp;{{ later.message }}</p>
     </div>
-    <div v-if="messagesFromLocalStorage">
-      <div class="footer__message_items" v-for="later of messagesFromLocalStorage" v-on:click="showDetails(messagesFromLocalStorage.indexOf(later))">
-        <p class="container">{{ later.name }}</p>
-        <p class="container">{{ later.email }}</p>
-        <p class="container">
-          &nbsp;{{ later.message }}
-          <span class="footer__message_delete" v-on:click="deleted($event)" :id="messagesFromLocalStorage.indexOf(later)">&times;</span>
-        </p>
-      </div>
+    
+    <div class="footer__message_items" v-if="messagesFromLocalStorage" v-for="later of messagesFromLocalStorage" v-on:click="showDetails(messagesFromLocalStorage.indexOf(later))">
+      <p class="container">{{ later.name }}</p>
+      <p class="container">{{ later.email }}</p>
+      <p class="container">
+        &nbsp;{{ later.message }}
+        <span class="footer__message_delete" v-on:click="deleted($event)" :id="messagesFromLocalStorage.indexOf(later)">&times;</span>
+      </p>
     </div>
 
     <div class="footer__register-form">
@@ -153,7 +151,8 @@ export default {
       messagesFromServer : null,
       messagesFromLocalStorage: localStorage.getItem('messages') ? JSON.parse(localStorage.getItem('messages'))['mess'] : [],
       showMessageDetales: false,
-      showMessage: []
+      showMessage: [],
+      copyMessage: null
     }
   },
   validations: {
@@ -194,23 +193,23 @@ export default {
       localStorage.setItem('messages', JSON.stringify({ mess: this.messagesFromLocalStorage }));
     },
     showDetails(e) {
-      this.showMessageDetales = true;
-      this.showMessage.push(this.messagesFromLocalStorage[e]);
-      // this.copyMessage = this.messagesFromLocalStorage[e]['message'];
-      // this.createUpdateForm(e);
+      if (this.messagesFromLocalStorage[e]) {
+        this.showMessageDetales = true;
+        this.showMessage.push(this.messagesFromLocalStorage[e]);
+        this.copyMessage = this.messagesFromLocalStorage[e]['message'];
+      }
     },
     updateMessage() {
       this.showMessageDetales = false;
-      // this.showMessage[0].message = this.updateMessageForm.value.updateMessage;
-      // this.showMessage = [ ];
-      // this.copyMessage = '';
-      // this.messageService.updateMessage({ mess: this.messagesFromLocalStorage });
+      localStorage.setItem('messages', JSON.stringify({ mess: this.messagesFromLocalStorage }));
+      this.showMessage = [];
+      this.copyMessage = '';
     },
     closeMessage() {
       this.showMessageDetales = false;
-      // this.showMessage[0].message = this.copyMessage;
-      // this.showMessage = [ ];
-      // this.copyMessage = '';
+      this.showMessage[0].message = this.copyMessage;
+      this.showMessage = [];
+      this.copyMessage = '';
     }
   },
   mounted () {
@@ -224,21 +223,21 @@ export default {
 
 <style scoped>
 .footer {
-  padding: 15px;
+  padding: 15px calc(15px + 1%);
   background-image: linear-gradient(-180deg, #E6F0F0 0%, #E9F0E6 100%);
 }
 
 .footer__show-modal {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: calc(78% - 66px);
   margin: 0 10%;
   padding: 15px;
   background-color: rgb(238, 245, 243);
   border: solid;
   border-radius: 5px;
   position: fixed;
-  top: 80px;
+  top: 180px;
   z-index: 15;
 }
 
@@ -336,6 +335,11 @@ export default {
   font-size: 15px;
 }
 
+.form__input_message-modal {
+  width: 100%;
+  height: 200px;
+}
+
 .form__input:hover {
   border: 2px solid #286090;
 }
@@ -346,6 +350,30 @@ export default {
   margin-top: 10px;
   font-size: 14px;
   color: red;
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  margin-left: 5px;
+}
+
+.btn-update {
+  background-color: red;
+}
+
+.btn-update:hover {
+  background-color: rgb(187, 4, 4);
+}
+
+.btn-close {
+  background-color: gray;
+}
+
+.btn-close:hover {
+  background-color: rgb(82, 81, 81);
 }
 
 .btn-primary {
@@ -369,6 +397,15 @@ export default {
   .footer__register-form {
     display: block;
   }
+
+  .footer__show-modal_items {
+    display: block;
+  }
+
+  .footer__show-modal {
+  width: calc(98% - 66px);
+  margin: 0;
+}
 
   .container {
     width: 100%;
