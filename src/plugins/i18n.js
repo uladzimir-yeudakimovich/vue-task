@@ -46,9 +46,9 @@ export const i18n = new VueI18n({
           messages: "Messages"
         }
       },
-      "view application": "посмотреть приложение",
-      "play": "играть",
-      "view site": "посмотреть сайт",
+      "view application": "view application",
+      "play": "play",
+      "view site": "view site",
 
       "Application on angular.": "Application on angular.",
       "This application was written using frameworks Angular 6 and Bootstrap 4. I used such technologies as structural directives, pipes, services, routing and navigation, forms, ngModules, observables and RxJS, worked with API. With this application, you can download the required number of users from the server. Make a quick search for the right person by name.  Mark the right people.": "This application was written using frameworks Angular 6 and Bootstrap 4. I used such technologies as structural directives, pipes, services, routing and navigation, forms, ngModules, observables and RxJS, worked with API. With this application, you can download the required number of users from the server. Make a quick search for the right person by name.  Mark the right people.",

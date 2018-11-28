@@ -80,7 +80,7 @@
       <form class="container footer__register-form" @submit.prevent="submit">
         <div>
           <input class="form__input" :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.name')" v-model.trim="$v.name.$model"/>
-          <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ $t('footer.vrequired.name') }}</div>
+          <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ $t('footer.required.name') }}</div>
           <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ $t('footer.required.validName') }}</div>
         </div>
         <div>
