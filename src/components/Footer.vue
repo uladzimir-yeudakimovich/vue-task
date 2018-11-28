@@ -79,17 +79,30 @@
 
       <form class="container footer__register-form" @submit.prevent="submit">
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.name')" v-model.trim="$v.name.$model"/>
+          <input class="form__input"
+                :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }"
+                :placeholder="$t('footer.form.name')"
+                v-model.trim="$v.name.$model"
+                aria-label="name"/>
           <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ $t('footer.required.name') }}</div>
           <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ $t('footer.required.validName') }}</div>
         </div>
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.email.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.email')" v-model.trim="$v.email.$model"/>
+          <input class="form__input"
+                :class="{ 'form__input_error': $v.email.$error && submitStatus === 'ERROR' }"
+                :placeholder="$t('footer.form.email')"
+                v-model.trim="$v.email.$model"
+                aria-label="email"/>
           <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ $t('footer.required.email') }}</div>
           <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ $t('footer.required.validEmail') }}</div>
         </div>
         <div>
-          <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.message')"  v-model.trim="$v.message.$model"></textarea>
+          <textarea class="form__input form__input_message"
+                    :class="{ 'form__input_error': $v.message.$error && submitStatus === 'ERROR' }"
+                    :placeholder="$t('footer.form.message')"
+                    v-model.trim="$v.message.$model"
+                    aria-label="message">
+          </textarea>
           <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ $t('footer.required.message') }}</div>
           <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ $t('footer.required.validMessage') }}</div>
         </div>
