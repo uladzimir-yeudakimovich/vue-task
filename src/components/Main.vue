@@ -1,14 +1,14 @@
 <template>
   <div class="main">
     <h1 class="main__title">{{ $t('main.title') }}</h1>
-    <div v-for="slide in slides" v-bind:key="slide.id">
+    <div v-for="slide in slides" v-bind:key="slide.link">
       <div :class="slides.indexOf(slide)%2 === 0 ? 'main__my-works-right' : 'main__my-works'">
         <article class="main__container">
           <div>
-            <h3 class="main__my-work_slide-name">{{ slide.name }}</h3>
-            <a class="main__my-work_slide-link" :href="slide.link" target="_blank" rel="noopener">{{ slide.click }}</a>
+            <h3 class="main__my-work_slide-name">{{ $t(slide.name) }}</h3>
+            <a class="main__my-work_slide-link" :href="slide.link" target="_blank" rel="noopener">{{ $t(slide.click) }}</a>
           </div>
-          <p class="main__my-work_description">&nbsp;{{ slide.description }}</p>
+          <p class="main__my-work_description">&nbsp;{{ $t(slide.description) }}</p>
         </article>
         <carousel class="main__container"
                   :per-page="1"

@@ -45,7 +45,24 @@ export const i18n = new VueI18n({
           email: "Email",
           messages: "Messages"
         }
-      }  
+      },
+      "view application": "посмотреть приложение",
+      "play": "играть",
+      "view site": "посмотреть сайт",
+
+      "Application on angular.": "Application on angular.",
+      "This application was written using frameworks Angular 6 and Bootstrap 4. I used such technologies as structural directives, pipes, services, routing and navigation, forms, ngModules, observables and RxJS, worked with API. With this application, you can download the required number of users from the server. Make a quick search for the right person by name.  Mark the right people.": "This application was written using frameworks Angular 6 and Bootstrap 4. I used such technologies as structural directives, pipes, services, routing and navigation, forms, ngModules, observables and RxJS, worked with API. With this application, you can download the required number of users from the server. Make a quick search for the right person by name.  Mark the right people.",
+      "Portfolio.": "Portfolio.",
+      "It is my first portfolio. I created it on native JavaScript using HTML5 and CSS3. This application is bilingual.": "It is my first portfolio. I created it on native JavaScript using HTML5 and CSS3. This application is bilingual.",
+      "Application on react.": "Application on react.",
+      "Task Scheduler To-DO-List. The development language is JavaScript. It was written with the use of the React framework, with the connection of the Redux library.": "Task Scheduler To-DO-List. The development language is JavaScript. It was written with the use of the React framework, with the connection of the Redux library.",
+      "Math-match-game.": "Math-match-game.",
+      "Game for the development of memory. It was written in HTML5, CSS3 and JavaScript.": "Game for the development of memory. It was written in HTML5, CSS3 and JavaScript.",
+      "The site of restaurant.": "The site of restaurant.",
+      "Online page of restaurant. It was written in HTML5 using CSS Grid Layout and CSS Flexbox.": "Online page of restaurant. It was written in HTML5 using CSS Grid Layout and CSS Flexbox.",
+
+      "Super work!!!": "Super work!!!",
+      "How much is this application?": "How much is this application?"
     },
     Ru: {
       header: {
@@ -90,6 +107,20 @@ export const i18n = new VueI18n({
       "view application": "посмотреть приложение",
       "play": "играть",
       "view site": "посмотреть сайт",
+
+      "Application on angular.": "Приложение на angular.",
+      "This application was written using frameworks Angular 6 and Bootstrap 4. I used such technologies as structural directives, pipes, services, routing and navigation, forms, ngModules, observables and RxJS, worked with API. With this application, you can download the required number of users from the server. Make a quick search for the right person by name.  Mark the right people.": "Это приложение было написано с использованием фреймворков Angular 6 и Bootstrap 4. Я использовал такие технологии, как директивы, пайпы, сервисы, маршрутизацию и навигацию, формы, ng-модули, наблюдатели и RxJS, работающие с API. С помощью этого приложения вы можете скачать требуемое количество пользователей с сервера. Сделайте быстрый поиск подходящего человека по имени. Отметить нужных людей.",
+      "Portfolio.": "Портфолио.",
+      "It is my first portfolio. I created it on native JavaScript using HTML5 and CSS3. This application is bilingual.": "Это мое первое портфолио. Я создал его на чистом JavaScript, используя HTML5 и CSS3. Это приложение двуязычное.",
+      "Application on react.": "Приложение на react.",
+      "Task Scheduler To-DO-List. The development language is JavaScript. It was written with the use of the React framework, with the connection of the Redux library.": "Планировщик заданий To-DO-List. Язык разработки - JavaScript. Был написан с использованием фреймворка React, с подключением библиотеки Redux.",
+      "Math-match-game.": "Math-match-game.",
+      "Game for the development of memory. It was written in HTML5, CSS3 and JavaScript.": "Игра для развития памяти. Разработана с использованием HTML5, CSS3 и JavaScript.",
+      "The site of restaurant.": "Сайт ресторана.",
+      "Online page of restaurant. It was written in HTML5 using CSS Grid Layout and CSS Flexbox.": "Интернет-страница ресторана. Разработана с использованием HTML5 и CSS Grid Layout и CSS Flexbox.",
+
+      "Super work!!!": "Классная работа!!!",
+      "How much is this application?": "Сколько стоит это приложение?"
     }
   }
 })
