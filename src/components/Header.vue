@@ -1,32 +1,32 @@
 <template>
   <div class="header">
     <div class="languages">
-      <button class="change-language" v-for="lang in languages" v-bind:key="lang" @click="changeLanguage(lang)">
-        {{ lang }}
-      </button>
+      <button class="change-language" :class="isEnglish ? 'change-language_unactive' : 'change-language_active'" @click="changeLanguage('En')">En</button>
+      <button class="change-language" :class="isEnglish ? 'change-language_active' : 'change-language_unactive'" @click="changeLanguage('Ru')">Ru</button>
     </div>
     <figure class="container header__laptop">
       <img class="rectangle" src="../assets/images/logo_laptop.jpg" alt="logo_laptop">
     </figure>
     <article class="container">
-      <h3 class="header__subname">{{ $t('position') }}</h3>
-      <h1 class="header__name">{{ $t('name') }}</h1>
+      <h3 class="header__subname">{{ $t('header.position') }}</h3>
+      <h1 class="header__name">{{ $t('header.name') }}</h1>
       <figure class="header__phone">
         <img class="circle" src="../assets/images/logo_phone.jpg" alt="logo_phone">
       </figure>
       <figure class="header__tablet">
         <img class="circle" src="../assets/images/logo_tablet.jpg" alt="logo_tablet">
       </figure>
-      <p class="header__descriptin">&nbsp;{{ $t('description') }}</p>
+      <p class="header__descriptin">&nbsp;{{ $t('header.description') }}</p>
     </article>
   </div>
 </template>
 
 <script>
 export default {
-  data: () => ({ languages: ['En', 'Ru'] }),
+  data: () => ({ isEnglish: true }),
   methods: {
     changeLanguage(lang) {
+      this.isEnglish = !this.isEnglish;
       this.$i18n.locale = lang;
     }
   }
@@ -41,7 +41,7 @@ export default {
 }
 
 .languages {
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: calc(50% - 100px);
 }
@@ -49,10 +49,20 @@ export default {
 .change-language {
   width: 100px;
   height: 40px;
-  background-color: #0000ff;
-  color: white;
   font-size: 16px;
   font-weight: 900;
+  border-radius: 4px;
+  border: none;
+}
+
+.change-language_unactive {
+  background-color: #0000ff;
+  color: white;
+}
+
+.change-language_active {
+  background-color: white;
+  color: #0000ff;
 }
 
 .container {

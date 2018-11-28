@@ -7,16 +7,16 @@
         <textarea class="container form__input_message form__input_message-modal" v-model.trim="showMessage[0].message"></textarea>
       </div>
       <div class="footer__show-modal_buttons">
-        <button class="btn btn-update" v-on:click="updateMessage">{{ buttons.update }}</button>
-        <button class="btn btn-close" v-on:click="closeMessage">{{ buttons.close }}</button>
+        <button class="btn btn-update" v-on:click="updateMessage">{{ $t('footer.buttons.update') }}</button>
+        <button class="btn btn-close" v-on:click="closeMessage">{{ $t('footer.buttons.close') }}</button>
       </div>
     </div>
 
-    <h3 class="footer__message_title">{{ messages.comments }}</h3>
+    <h3 class="footer__message_title">{{ $t('footer.messages.comments') }}</h3>
     <div class="footer__message_items">
-      <h5 class="container">{{ messages.name }}</h5>
-      <h5 class="container">{{ messages.email }}</h5>
-      <h5 class="container">{{ messages.messages }}</h5>
+      <h5 class="container">{{ $t('footer.messages.name') }}</h5>
+      <h5 class="container">{{ $t('footer.messages.email') }}</h5>
+      <h5 class="container">{{ $t('footer.messages.messages') }}</h5>
     </div>
 
     <div class="footer__message_items" v-if="messagesFromServer" v-for="later of messagesFromServer" v-bind:key="later.email">
@@ -36,8 +36,8 @@
 
     <div class="footer__register-form">
       <section class="container">
-        <h3 class="contacts_title">{{ information }}</h3>
-        <p class="contacts_description">&nbsp;{{ description }}</p>
+        <h3 class="contacts_title">{{ $t('footer.information') }}</h3>
+        <p class="contacts_description">&nbsp;{{ $t('footer.description') }}</p>
         <ul class="contacts_items">
           <li class="contact-item">
             <img src="../assets/images/social_icons/phone.svg" alt="phone">
@@ -49,14 +49,14 @@
           </li>
           <li class="contact-item">
             <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Евдокимович Владимир.docx" download>{{ cvRussian }}</a>
+            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Евдокимович Владимир.docx" download>{{ $t('footer.cvRussian') }}</a>
           </li>
           <li class="contact-item">
             <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Uladzimir Yeudakimovich.docx" download>{{ cvEnglish }}</a>
+            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Uladzimir Yeudakimovich.docx" download>{{ $t('footer.cvEnglish') }}</a>
           </li>
         </ul>
-        <h4 class="contacts_title">{{ subname }}</h4>
+        <h4 class="contacts_title">{{ $t('footer.subname') }}</h4>
         <ul class="contacts_items">
           <li class="contact-item">
             <img src="../assets/images/social_icons/linkedin.svg" alt="linkedin">
@@ -79,22 +79,22 @@
 
       <form class="container footer__register-form" @submit.prevent="submit">
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }" :placeholder="form.name" v-model.trim="$v.name.$model"/>
-          <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ required.name }}</div>
-          <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ required.validName }}</div>
+          <input class="form__input" :class="{ 'form__input_error': $v.name.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.name')" v-model.trim="$v.name.$model"/>
+          <div class="error" v-if="!$v.name.required && submitStatus === 'ERROR'">{{ $t('footer.vrequired.name') }}</div>
+          <div class="error" v-if="!$v.name.minLength && submitStatus === 'ERROR'">{{ $t('footer.required.validName') }}</div>
         </div>
         <div>
-          <input class="form__input" :class="{ 'form__input_error': $v.email.$error && submitStatus === 'ERROR' }" :placeholder="form.email" v-model.trim="$v.email.$model"/>
-          <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ required.email }}</div>
-          <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ required.validEmail }}</div>
+          <input class="form__input" :class="{ 'form__input_error': $v.email.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.email')" v-model.trim="$v.email.$model"/>
+          <div class="error" v-if="!$v.email.required && submitStatus === 'ERROR'">{{ $t('footer.required.email') }}</div>
+          <div class="error" v-if="!$v.email.email && submitStatus === 'ERROR'">{{ $t('footer.required.validEmail') }}</div>
         </div>
         <div>
-          <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error && submitStatus === 'ERROR' }" :placeholder="form.message"  v-model.trim="$v.message.$model"></textarea>
-          <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ required.message }}</div>
-          <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ required.validMessage }}</div>
+          <textarea class="form__input form__input_message" :class="{ 'form__input_error': $v.message.$error && submitStatus === 'ERROR' }" :placeholder="$t('footer.form.message')"  v-model.trim="$v.message.$model"></textarea>
+          <div class="error" v-if="!$v.message.required && submitStatus === 'ERROR'">{{ $t('footer.required.message') }}</div>
+          <div class="error" v-if="!$v.message.minLength && submitStatus === 'ERROR'">{{ $t('footer.required.validMessage') }}</div>
         </div>
         <div>
-          <button class="btn-primary" type="submit" :disabled="submitStatus === 'OK'">{{ buttons.submit }}</button>
+          <button class="btn-primary" type="submit" :disabled="submitStatus === 'OK'">{{ $t('footer.buttons.submit') }}</button>
         </div>
       </form>
     </div>
@@ -109,13 +109,8 @@ const axios = require('axios');
 export default {
   data () {
     return {
-      information: "Contact Information",
-      description: "I'm open to new projects. You can send me for evaluation an approximate technical assignment or simply a description of the project in your own words.",
       phone: "+375 33 3344201",
       myEmail: "uladzimir.yeudakimovich@gmail.com",
-      cvRussian: "CV in russian",
-      cvEnglish: "CV in english",
-      subname: "Links to my social networks:",
       linkedin: "Linkedin",
       github: "Github",
       codewars: "CodeWars",
@@ -124,30 +119,6 @@ export default {
       email: '',
       message: '',
       submitStatus: null,
-      form: {
-        name: "Enter name *",
-        email: "Enter email *",
-        message: "Enter message *"
-      },
-      required: {
-        name: "Name is required",
-        validName: "Name must be at least 4 characters",
-        email: "Email is required",
-        validEmail: "Email must be a valid email address",
-        message: "Message is required",
-        validMessage: "Message must be at least 2 characters"
-      },
-      buttons: {
-        update: "Update",
-		    close: "Close",
-        submit: "Submit"
-      },
-      messages: {
-        comments: "Comments",
-        name: "Name",
-        email: "Email",
-        messages: "Messages"
-      },
       messagesFromServer : null,
       messagesFromLocalStorage: localStorage.getItem('messages') ? JSON.parse(localStorage.getItem('messages'))['mess'] : [],
       showMessageDetales: false,
@@ -391,6 +362,10 @@ export default {
 .btn-primary:hover {background-color: rgb(64, 64, 221)}
 
 @media (max-width: 768px) {
+  .footer__show-modal {
+    top: 80px;
+  }
+
   .footer__message_items {
     display: block;
   }
