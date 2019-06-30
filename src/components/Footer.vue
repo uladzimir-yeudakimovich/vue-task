@@ -49,11 +49,11 @@
           </li>
           <li class="contact-item">
             <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Евдокимович Владимир.docx" download>{{ $t('footer.cvRussian') }}</a>
+            <a class="contact-link" href="https://uladzimir-yeudakimovich.github.io//assets/CV_Евдокимович Владимир.docx" download>{{ $t('footer.cvRussian') }}</a>
           </li>
           <li class="contact-item">
             <img src="../assets/images/social_icons/cloud.svg" alt="cloud">
-            <a class="contact-link" href="https://uladzimir-yeudakimovich.ml//assets/CV_Uladzimir Yeudakimovich.docx" download>{{ $t('footer.cvEnglish') }}</a>
+            <a class="contact-link" href="https://uladzimir-yeudakimovich.github.io//assets/CV_Uladzimir Yeudakimovich.docx" download>{{ $t('footer.cvEnglish') }}</a>
           </li>
         </ul>
         <h4 class="contacts_title">{{ $t('footer.subname') }}</h4>
@@ -199,7 +199,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://uladzimir-yeudakimovich.ml/assets/message.json')
+      .get('https://uladzimir-yeudakimovich.github.io/assets/message.json')
       .then(response => (this.messagesFromServer = response.data.mess))
       .catch(error => console.log(error))
   }

@@ -17,19 +17,19 @@
                   :loop="true"
                   paginationActiveColor="#0000ff">
           <slide>
-            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.ml/' + slide.images[0]" alt="Random first slide">
+            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.github.io/' + slide.images[0]" alt="Random first slide">
           </slide>
           <slide>
-            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.ml/' + slide.images[1]" alt="Random second slide">
+            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.github.io/' + slide.images[1]" alt="Random second slide">
           </slide>
           <slide>
-            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.ml/' + slide.images[2]" alt="Random third slide">
+            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.github.io/' + slide.images[2]" alt="Random third slide">
           </slide>
           <slide>
-            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.ml/' + slide.images[3]" alt="Random fourth slide">
+            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.github.io/' + slide.images[3]" alt="Random fourth slide">
           </slide>
           <slide>
-            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.ml/' + slide.images[4]" alt="Random fifth slide">
+            <img class="main__my-work_img" :src="'https://uladzimir-yeudakimovich.github.io/' + slide.images[4]" alt="Random fifth slide">
           </slide>
         </carousel>
       </div>
@@ -53,7 +53,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://uladzimir-yeudakimovich.ml/assets/data.json')
+      .get('https://uladzimir-yeudakimovich.github.io/assets/data.json')
       .then(response => (this.slides = response.data))
       .catch(error => console.log(error))
   }
