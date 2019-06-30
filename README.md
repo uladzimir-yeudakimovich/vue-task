@@ -4,7 +4,7 @@
 # <a href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fuladzimir-yeudakimovich.github.io%2Fvue-task%2F">Click there ;)</a>
 # Do you want to see the validity?
 # <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fuladzimir-yeudakimovich.github.io%2Fvue-task%2F">Click there ;)</a>
-
+ 
 This project was generated with Vue.js version 2.5.2.
 
 ## Build Setup
